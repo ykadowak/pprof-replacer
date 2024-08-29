@@ -8,6 +8,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/urfave/cli/v2"
 	"github.com/ykadowak/pprof-replcacer/pb"
@@ -67,9 +68,10 @@ func replaceSymbol(path string, from string, to string) error {
 		panic(err)
 	}
 
-	// FIXME: write with gzip. name should be appended to its base name like heap_new.pb.gz
-
-	if err := os.WriteFile(fmt.Sprintf("%s_new.pb", path), b, 0777); err != nil {
+	// TODO: export with gzip?
+	base := filepath.Base(path)
+	base = strings.Split(base, ".")[0]
+	if err := os.WriteFile(fmt.Sprintf("%s_new.pb", base), b, 0777); err != nil {
 		return fmt.Errorf("failed to write file: %w", err)
 	}
 	return nil
