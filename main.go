@@ -11,7 +11,7 @@ import (
 	"strings"
 
 	"github.com/urfave/cli/v2"
-	"github.com/ykadowak/pprof-replcacer/pb"
+	"github.com/ykadowak/pprof-replacer/pb"
 	"google.golang.org/protobuf/proto"
 )
 

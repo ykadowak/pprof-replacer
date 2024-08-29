@@ -1,4 +1,4 @@
-module github.com/ykadowak/pprof-replcacer
+module github.com/ykadowak/pprof-replacer
 
 go 1.22.1
 
